@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Average Finder</title>
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/pyscript.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/pyscript.js"></script>
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #121212;
+            color: #f0f0f0;
+            padding: 40px 20px;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        h2 {
+            font-size: 34px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ffcc00;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 120px;
+            height: auto;
+        }
+
+        .card {
+            background-color: #e74c3c;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            color: #ffffff;
+        }
+
+        .inputs-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 15px;
+            margin-bottom: 15px;
+        }
+
+        .inputs-container label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .inputs-container input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #fff;
+            font-size: 16px;
+            background-color: #2c2c2c;
+            color: #f0f0f0;
+            transition: all 0.3s;
+        }
+
+        .inputs-container input:focus {
+            border-color: #ffcc00;
+            box-shadow: 0 0 5px #ffcc00;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background: linear-gradient(45deg, #ff9966, #ffcc66, #66ccff, #ff66cc);
+            background-size: 400% 400%;
+            color: #1c1c1c;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.5s;
+            margin-bottom: 15px;
+            font-weight: bold;
+            animation: gradientMove 5s ease infinite;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        p { font-size: 16px; margin-top: 10px; }
+
+        #average { font-weight: bold; }
+        #place { font-weight: bold; font-size: 18px; }
+        #result { font-weight: bold; }
+
+        #result.passed { color: #58d68d; }
+        #result.failed { color: #c0392b; }
+
+        @media(max-width: 400px){
+            .inputs-container { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="logo">
+        <img src="logo.avif" alt="WTF Logo" width="120">
+    </div>
+
+    <h2>Taekwondo Grade Picker</h2>
+
+    <div class="card">
+        <div class="inputs-container">
+            <div>
+                <label for="grade1">Grade 1:</label>
+                <input id="grade1" type="text">
+            </div>
+            <div>
+                <label for="grade2">Grade 2:</label>
+                <input id="grade2" type="text">
+            </div>
+            <div>
+                <label for="grade3">Grade 3:</label>
+                <input id="grade3" type="text">
+            </div>
+            <div>
+                <label for="grade4">Grade 4:</label>
+                <input id="grade4" type="text">
+            </div>
+        </div>
+
+        <button py-click="compute_average">Compute</button>
+
+        <p><b>Average: <span id="average"></span></b></p>
+        <p><b>Place: <span id="place"></span></b></p>
+        <p><b>Passed? <span id="result"></span></b></p>
+
+        <script type="py" src="main.py"></script>
+    </div>
+
+</body>
+</html>
